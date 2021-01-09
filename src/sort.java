@@ -1,38 +1,19 @@
 
-public class frequency {
+/**
+ * Integer sorting class implementing merge sort algorithm
+ * @author Christopher Valerio
+ */
+public class sort {
 
-	public void frequencySort(int[] sort) {
-		int len = sort.length;
-		int maxVal = sort[0];
-		for(int i = 1; i < len; i++) {
-			if(sort[i] > maxVal) {
-				maxVal = sort[i];
-			}
-		}
-		System.out.println(len);
-		System.out.println(maxVal);
-		int[] tally = new int[maxVal + 1];
-		for(int i = 0; i < len; i++) {
-
-			tally[sort[i]]++;
-			//for(int j = 0)
-		}
-		System.out.println("frequency table");
-		int a = 0;
-		for(int i : tally) {
-			System.out.println(a + ": " + i);
-			a++;
-		}
-		for(int i = 0; i < tally.length; i++) {
-			if(tally[i] != 0) {
-				sort[tally[i] - 1] = tally[i];
-			}
-			//sort[tally[i]]
-		}
-
-
-	}
-
+	/**
+	 * 
+	 * implements a divide and conquer sorting algorithm. 
+	 * given unsorted array is split into a sub list, each containing one element
+	 * these divided sub list are repeatedly merged until only one sub list is produced.
+	 * containing all elements in a sorted fashion
+	 * 
+	 * @param array - unsorted array of random integer numbers to be sorted via merge sort
+	 */
 	public void mergeSort(int[] array) {
 		int len = array.length;
 		if(len < 2)
@@ -62,6 +43,16 @@ public class frequency {
 	}
 
 
+	/**
+	 * 
+	 * merge method which takes two array sub lists
+	 * and sorts them. to be later merged with the rest of array sub lists
+	 * until entire unsorted array is sorted
+	 * 
+	 * @param lArray - newly created left sub list array
+	 * @param rArray - newly created right sub list array
+	 * @param tempArray - original unsorted array
+	 */
 	public void merge(int[] lArray, int[] rArray, int[] tempArray) {
 		int lLen = lArray.length;
 		int rLen = rArray.length;
